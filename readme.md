@@ -11,6 +11,6 @@ Obsahuje formulář pro zadání jména. Cílem aplikace je ukládat lidi, co ne
 ```python
 # /form  - vrací formulář pro zádání jména
 
-# /result - vrací všechna jména
+# /showNames - vrací všechna jména
 
-# /api/{name} - alternativně ukládá jméno pomocí url
+# /addNameByPath/{name} - alternativně ukládá jméno pomocí url

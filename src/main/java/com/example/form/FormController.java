@@ -18,23 +18,29 @@ public class FormController {
 
 
     @GetMapping("/form")
-    public String greetingForm(Model model) {
+    public String hateForm(Model model) {
         model.addAttribute("person", new Person());
         return "form";
     }
 
     @PostMapping("/form")
-    public String greetingSubmit(@ModelAttribute Person person, Model model) {
+    public String hateSubmit(@ModelAttribute Person person, Model model) {
         model.addAttribute("person", person);
         stringService.add(person.getName());
         model.addAttribute("counter", stringService.getString());
 
-        return "result";
+        return "resultForm";
     }
 
-    @GetMapping("/api/{name}")
+    @GetMapping("/showNames")
+    public String showResult( Model model) {
+        model.addAttribute("counter", stringService.getString());
+        return "showNames";
+    }
+
+    @GetMapping("/addNameByPath/{name}")
     @ResponseBody
-    public String getEmployeesById(@PathVariable String name) {
+    public String addNameByPath(@PathVariable String name) {
         stringService.add(name);
         return "Name: " + name;
 
